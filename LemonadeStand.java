@@ -6,12 +6,21 @@ import java.util.Scanner; //Scanner is a class
 public class LemonadeStand {
 
 	//cashOnHand is private so no one takes your money==> limited to LemonadeStand.java class
-	private double cashOnHand;
-        double cash = 50.0;
+	
+      	double cash = 50.0;
 	double costOfLemon = 1.50; //qty one lemon
 	double costOfSugar = 2.00; //qty 1 cup of sugar
-	double costOfIce = 1.75;   //qty 1 cup of ice
+	double costOfIceBag = 3.50;   //qty 1 cup of ice
 	double costOfCup = 0.25;   //qty 1 cup
+
+	int numSugarsPerCup = 8;
+	int numIcePerIceBag = 20;
+
+	int lemonsPossibleToBuy = cash/costOfLemon;
+	int sugarPossibleToBuy;
+	int iceBagsPossibleToBuy;
+	int cupsPossibleToBuy;
+
 	int qtyLemons = 0;         //how many lemons you HAVE
 	int qtySugars = 0;   //how many sugars you HAVE
 	int qtyIce = 0;            //how many ice you HAVE
@@ -34,6 +43,7 @@ public void setup() {
 	System.out.println("After you buy supplies, you'll be asked to create a recipe for your lemonade.\n You also need to set a price for your lemonade.");
 	System.out.println("Depending on the recipe and the price, a certain amount of customers will come each day.");
 	System.out.println("At the end of each day, you can buy more supplies using the money you made and change your recipe to increase customer satisfaction.");
+	System.out.println("And a quick note: if you don't have any cups, you can't sell lemonade! Make sure you save enough money for those.");
 	
 	String response1;
 	while (response1 != "yes")
@@ -44,6 +54,8 @@ public void setup() {
 	
 	int day = 1;
 	String responseToBuyingSupplies;
+
+	
 	
 	while(day <= daysTotal)
 	{
@@ -68,8 +80,22 @@ public void setup() {
 		//if they said they would like to buy supplies
 		if (responseToBuySupplies == "yes")
 		{
+			String responseToBuyLemons;
+			lemonsPossibleToBuy = cash/costOfLemon;
+			while(responseToBuyLemons != "yes")
+			{
+				System.out.println("Please type in an integer for how many lemons you would like to buy. You currently have "+qtyLemons+" and can buy up to"+lemonsPossibleToBuy+". If you do not want to buy any lemons, type 0.");
+				int qtyNewLemons = scan.nextLine();
+
+
+				System.out.println("You would like to buy "+qtyNewLemons+" ,correct? Type 'yes' if so, and type 'no' if not.");
+				responseToBuyLemons = scan.nextLine();	
+			}	
 			
 		}
+			qtyLemons = qtyLemons+qtyNewLemons;
+			double qtyCashSpentOnLemons = qtyNewLemons*costOfLemon;
+			double cash = cash-qtyCashSpentOnLemons;
 		
 	}
    }  //close setup
