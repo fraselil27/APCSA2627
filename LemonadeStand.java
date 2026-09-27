@@ -1,5 +1,5 @@
 //Lily Fraser APCSA
-
+//ask about scanner for ints
 //LemonadeStand.java
 import java.util.Scanner; //Scanner is a class
 
@@ -26,9 +26,9 @@ public void setup() {
 	int daysTotal;
 	String name;
 	System.out.println("What is your name?");
-	String name = scan.nextLine();
+	name = scan.nextLine();
 	System.out.println("Hi, "+name+"! How many days would you like to play for? Please enter an integer.");
-	int daysTotal = scan.nextline();
+	daysTotal = scan.nextline();
 	System.out.println("Here are instructions on how to play Lemonade Stand.");
 	System.out.println("You have $"+cash+"currently to spend on lemons, sugar, ice, and cups.");
 	System.out.println("After you buy supplies, you'll be asked to create a recipe for your lemonade.\n You also need to set a price for your lemonade.");
@@ -43,16 +43,21 @@ public void setup() {
 	}
 	
 	int day = 1;
+	String responseToBuyingSupplies;
 	
 	while(day <= daysTotal)
 	{
 		int totalSupplies = qtyLemons + qtySugars + qtyIce + qtyCups;
-
+		//this means they have enough money to buy supplies
 		if (cash >= 0.25)
 		{
+			System.out.println("You currently have "+qtyLemons+" lemons, "+qtySugars+" sugars, "+qtyIce+" ice cubes, and "+qtyCups+" cups.");
 			System.out.println("It is day "+day+". You currently have $"+cash+". Would you like to buy more supplies? Type 'yes' if so. Type 'no' if not.");
+			responseToBuyingSupplies = scan.nextLine();
+
 		}
-		else
+		//this means they do not have enough money to buy supplies
+		if (cash < 0.25)
 		{
 			if(totalSupplies == 0 || qtyCups == 0)
 			{
@@ -60,15 +65,12 @@ public void setup() {
 				day = daysTotal+1;
 			}
 		}
-		day = daysTotal + 1;
+		//if they said they would like to buy supplies
+		if (responseToBuySupplies == "yes")
+		{
+			
+		}
+		
 	}
    }  //close setup
 }
-//need import java.util.Scanner; at the top
-
-//Scanner scan = new Scanner(System.in);
-//String name  = scan.nextLine();
-//int age = scan.nextInt(); //still need to clear the buffer
-//String temp = scan.nextLine();
-//System.out.println("Hello"+name);
-//scan.close();
