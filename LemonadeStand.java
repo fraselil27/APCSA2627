@@ -66,7 +66,9 @@ public void setup() {
 			responseToBuyingSupplies = scan.nextLine();
 
 		}
+
 		//this means they do not have enough money to buy supplies
+
 		if (cash < 0.25)
 		{
 			if(totalSupplies == 0 || qtyCups == 0)
@@ -75,7 +77,9 @@ public void setup() {
 				day = daysTotal+1;
 			}
 		}
+
 		//if they said they would like to buy supplies
+
 		if (responseToBuySupplies == "yes")
 		{
 			int remainingCash;
@@ -83,7 +87,7 @@ public void setup() {
 			lemonsPossibleToBuy = cash/costOfLemon;
 			while(responseToBuyLemons != "yes")
 			{
-				System.out.println("Please type in an integer for how many lemons you would like to buy. You currently have "+qtyLemons+" and can buy up to"+lemonsPossibleToBuy+". If you do not want to buy any lemons, type 0.");
+				System.out.println("Please type in an integer for how many lemons you would like to buy. You currently have "+qtyLemons+", can buy up to"+lemonsPossibleToBuy+", and you have $"+cash". If you do not want to buy any lemons, type 0.");
 				int qtyNewLemons = scan.nextLine();
 
 
@@ -103,7 +107,7 @@ public void setup() {
 			
 			while(responseToBuySugar != "yes")
 			{
-				System.out.println("Please type in an integer for how many cups of sugar you would like to buy. You currently have "+qtySugar+" cups of sugar, can buy up to"+sugarPossibleToBuy+", and you have $"+cash+". If you do not want to buy any cups of sugar, type 0.");
+				System.out.println("Please type in an integer for how many cups of sugar you would like to buy. You currently have " + qtySugar + " cups of sugar, can buy up to" + sugarPossibleToBuy + ", and you have $" + cash + ". If you do not want to buy any cups of sugar, type 0.");
 				int qtyNewCupsSugar = scan.nextLine();
 				System.out.println("You would like to buy "+qtyNewCupsSugar+" ,correct? Type 'yes' if so, and type 'no' if not.");
 				responseToBuySugar = scan.nextLine();	
