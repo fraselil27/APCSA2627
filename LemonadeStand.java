@@ -13,9 +13,6 @@ public class LemonadeStand {
 	double costOfIceBag = 3.50;   //qty 1 cup of ice
 	double costOfCup = 0.25;   //qty 1 cup
 
-	int numSugarsPerCup = 8;
-	int numIcePerIceBag = 20;
-
 	int lemonsPossibleToBuy = cash/costOfLemon;
 	int sugarPossibleToBuy;
 	int iceBagsPossibleToBuy;
@@ -27,7 +24,8 @@ public class LemonadeStand {
 	int qtyCups = 0;           //how many cups you HAVE
 	int qtyCupsLemonade = 0;   //how many cups of lemonade you made
 	int lemonsPerPitcher;   //how many lemons per cup of lemonade
-	int icePerCup;   //how many ice cubes per cup of lemonade
+	int icePerPitcher;   //how many ice bags per cup of lemonade
+	int cupsSugarPerPitcher; //how many cups of sugar per pitcher
 	double cupsSugarPerCup;   //how many cups of sugar per cup of lemonade, a double bc the user could do a half a cup
 	Scanner scan = new Scanner(System.in);
 
@@ -63,7 +61,7 @@ public void setup() {
 		//this means they have enough money to buy supplies
 		if (cash >= 0.25)
 		{
-			System.out.println("You currently have "+qtyLemons+" lemons, "+qtySugars+" sugars, "+qtyIce+" ice cubes, and "+qtyCups+" cups.");
+			System.out.println("You currently have "+qtyLemons+" lemons, "+qtySugars+" cups of sugar, "+qtyIce+" bags of 20 ice cubes, and "+qtyCups+" cups.");
 			System.out.println("It is day "+day+". You currently have $"+cash+". Would you like to buy more supplies? Type 'yes' if so. Type 'no' if not.");
 			responseToBuyingSupplies = scan.nextLine();
 
@@ -80,6 +78,7 @@ public void setup() {
 		//if they said they would like to buy supplies
 		if (responseToBuySupplies == "yes")
 		{
+			int remainingCash;
 			String responseToBuyLemons;
 			lemonsPossibleToBuy = cash/costOfLemon;
 			while(responseToBuyLemons != "yes")
@@ -96,7 +95,24 @@ public void setup() {
 			qtyLemons = qtyLemons+qtyNewLemons;
 			double qtyCashSpentOnLemons = qtyNewLemons*costOfLemon;
 			double cash = cash-qtyCashSpentOnLemons;
-		
+
+			//now doing sugar
+
+			String responseToBuySugar;
+			int sugarPossibleToBuy = cash/costOfSugar;
+			
+			while(responseToBuySugar != "yes")
+			{
+				System.out.println("Please type in an integer for how many cups of sugar you would like to buy. You currently have "+qtySugar+" cups of sugar, can buy up to"+sugarPossibleToBuy+", and you have $"+cash+". If you do not want to buy any cups of sugar, type 0.");
+				int qtyNewCupsSugar = scan.nextLine();
+				System.out.println("You would like to buy "+qtyNewCupsSugar+" ,correct? Type 'yes' if so, and type 'no' if not.");
+				responseToBuySugar = scan.nextLine();	
+			}	
+			
+		}
+			qtySugar = qtySugar+qtyNewCupsSugar;
+			double qtyCashSpentOnLemons = qtyNewLemons*costOfLemon;
+			double cash = cash-qtyCashSpentOnLemons;
 	}
    }  //close setup
 }
