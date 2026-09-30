@@ -34,8 +34,10 @@ public void setup() {
 	String name;
 	System.out.println("What is your name?");
 	name = scan.nextLine();
+	
 	System.out.println("Hi, "+name+"! How many days would you like to play for? Please enter an integer.");
-	daysTotal = scan.nextline();
+	daysTotal = scan.nextInt();
+	String buffer = scan.nextLine();
 	System.out.println("Here are instructions on how to play Lemonade Stand.");
 	System.out.println("You have $"+cash+"currently to spend on lemons, sugar, ice, and cups.");
 	System.out.println("After you buy supplies, you'll be asked to create a recipe for your lemonade.\n You also need to set a price for your lemonade.");
@@ -43,15 +45,16 @@ public void setup() {
 	System.out.println("At the end of each day, you can buy more supplies using the money you made and change your recipe to increase customer satisfaction.");
 	System.out.println("And a quick note: if you don't have any cups, you can't sell lemonade! Make sure you save enough money for those.");
 	
-	String response1;
+	String response1 = "no";
 	while (response1 != "yes")
 	{
 		System.out.println("When you have read and understand these instructions, type 'yes'.");
 		response1 = scan.nextLine();
+
 	}
 	
 	int day = 1;
-	String responseToBuyingSupplies;
+	String responseToBuyingSupplies  ="yes";
 
 	
 	
@@ -79,42 +82,38 @@ public void setup() {
 		}
 
 		//if they said they would like to buy supplies
-
 		if (responseToBuyingSupplies == "yes")
 		{
+			int qtyNewLemons;
 			int remainingCash;
 			String responseToBuyLemons;
 			lemonsPossibleToBuy = (int)(cash/costOfLemon);
-			while(responseToBuyLemons != "yes")
-			{
-				System.out.println("Please type in an integer for how many lemons you would like to buy. You currently have "+qtyLemons+", can buy up to"+lemonsPossibleToBuy+", and you have $"+cash+". If you do not want to buy any lemons, type 0.");
-				int qtyNewLemons = scan.nextLine();
+			System.out.println("Please type in an integer for how many lemons you would like to buy. You currently have "+qtyLemons+", can buy up to"+lemonsPossibleToBuy+", and you have $"+cash+". If you do not want to buy any lemons, type 0.");
+			qtyNewLemons = scan.nextInt();
+			buffer = scan.nextLine();
 
 
-				System.out.println("You would like to buy "+qtyNewLemons+" ,correct? Type 'yes' if so, and type 'no' if not.");
-				responseToBuyLemons = scan.nextLine();	
-			}	
+			System.out.println("You would like to buy "+qtyNewLemons+" ,correct? Type 'yes' if so, and type 'no' if not.");
+			responseToBuyLemons = scan.nextLine();		
 			
 		
 			qtyLemons = qtyLemons+qtyNewLemons;
-			double qtyCashSpentOnLemons = qtyNewLemons*costOfLemon;
-			double cash = cash-qtyCashSpentOnLemons;
+			 double qtyCashSpentOnLemons = (double)(qtyNewLemons*costOfLemon);
+			cash = cash-qtyCashSpentOnLemons;
 
 			//now doing sugar
 
 			String responseToBuySugar;
 			int sugarPossibleToBuy = (int)(cash/costOfSugar);
-			
-			while(responseToBuySugar != "yes")
-			{
-				System.out.println("Please type in an integer for how many cups of sugar you would like to buy. You currently have " + qtySugar + " cups of sugar, can buy up to" + sugarPossibleToBuy + ", and you have $" + cash + ". If you do not want to buy any cups of sugar, type 0.");
-				int qtyNewCupsSugar = scan.nextLine();
-				System.out.println("You would like to buy "+qtyNewCupsSugar+" ,correct? Type 'yes' if so, and type 'no' if not.");
-				responseToBuySugar = scan.nextLine();	
-			}	
+			int qtyNewCupsSugar;
+			System.out.println("Please type in an integer for how many cups of sugar you would like to buy. You currently have " + qtySugars + " cups of sugar, can buy up to" + sugarPossibleToBuy + ", and you have $" + cash + ". If you do not want to buy any cups of sugar, type 0.");
+			qtyNewCupsSugar = scan.nextInt();
+			buffer = scan.nextLine();
+			System.out.println("You would like to buy "+qtyNewCupsSugar+" ,correct? Type 'yes' if so, and type 'no' if not.");
+			responseToBuySugar = scan.nextLine();		
 			
 			qtySugars = qtySugars+qtyNewCupsSugar;
-			double qtyCashSpentOnLemons = qtyNewLemons*costOfLemon;
+			qtyCashSpentOnLemons = (double)(qtyNewLemons*costOfLemon);
 			cash = cash-qtyCashSpentOnLemons;
 		}
 		
