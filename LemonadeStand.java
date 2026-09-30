@@ -13,7 +13,7 @@ public class LemonadeStand {
 	double costOfIceBag = 3.50;   //qty 1 cup of ice
 	double costOfCup = 0.25;   //qty 1 cup
 
-	int lemonsPossibleToBuy = cash/costOfLemon;
+	int lemonsPossibleToBuy = (int)(cash/costOfLemon);
 	int sugarPossibleToBuy;
 	int iceBagsPossibleToBuy;
 	int cupsPossibleToBuy;
@@ -47,7 +47,7 @@ public void setup() {
 	while (response1 != "yes")
 	{
 		System.out.println("When you have read and understand these instructions, type 'yes'.");
-		String response1 = scan.nextLine();
+		response1 = scan.nextLine();
 	}
 	
 	int day = 1;
@@ -80,14 +80,14 @@ public void setup() {
 
 		//if they said they would like to buy supplies
 
-		if (responseToBuySupplies == "yes")
+		if (responseToBuyingSupplies == "yes")
 		{
 			int remainingCash;
 			String responseToBuyLemons;
-			lemonsPossibleToBuy = cash/costOfLemon;
+			lemonsPossibleToBuy = (int)(cash/costOfLemon);
 			while(responseToBuyLemons != "yes")
 			{
-				System.out.println("Please type in an integer for how many lemons you would like to buy. You currently have "+qtyLemons+", can buy up to"+lemonsPossibleToBuy+", and you have $"+cash". If you do not want to buy any lemons, type 0.");
+				System.out.println("Please type in an integer for how many lemons you would like to buy. You currently have "+qtyLemons+", can buy up to"+lemonsPossibleToBuy+", and you have $"+cash+". If you do not want to buy any lemons, type 0.");
 				int qtyNewLemons = scan.nextLine();
 
 
@@ -95,7 +95,7 @@ public void setup() {
 				responseToBuyLemons = scan.nextLine();	
 			}	
 			
-		}
+		
 			qtyLemons = qtyLemons+qtyNewLemons;
 			double qtyCashSpentOnLemons = qtyNewLemons*costOfLemon;
 			double cash = cash-qtyCashSpentOnLemons;
@@ -103,7 +103,7 @@ public void setup() {
 			//now doing sugar
 
 			String responseToBuySugar;
-			int sugarPossibleToBuy = cash/costOfSugar;
+			int sugarPossibleToBuy = (int)(cash/costOfSugar);
 			
 			while(responseToBuySugar != "yes")
 			{
@@ -113,10 +113,11 @@ public void setup() {
 				responseToBuySugar = scan.nextLine();	
 			}	
 			
-		}
-			qtySugar = qtySugar+qtyNewCupsSugar;
+			qtySugars = qtySugars+qtyNewCupsSugar;
 			double qtyCashSpentOnLemons = qtyNewLemons*costOfLemon;
-			double cash = cash-qtyCashSpentOnLemons;
+			cash = cash-qtyCashSpentOnLemons;
+		}
+		
 	}
    }  //close setup
 }
