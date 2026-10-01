@@ -20,7 +20,7 @@ public class LemonadeStand {
 
 	int qtyLemons = 0;         //how many lemons you HAVE
 	int qtySugars = 0;   //how many sugars you HAVE
-	int qtyIce = 0;            //how many ice you HAVE
+	int qtyIceBags = 0;            //how many ice bags you HAVE
 	int qtyCups = 0;           //how many cups you HAVE
 	int qtyCupsLemonade = 0;   //how many cups of lemonade you made
 	int lemonsPerPitcher;   //how many lemons per cup of lemonade
@@ -86,36 +86,50 @@ public void setup() {
 		{
 			int qtyNewLemons;
 			int remainingCash;
-			String responseToBuyLemons;
 			lemonsPossibleToBuy = (int)(cash/costOfLemon);
 			System.out.println("Please type in an integer for how many lemons you would like to buy. You currently have "+qtyLemons+", can buy up to"+lemonsPossibleToBuy+", and you have $"+cash+". If you do not want to buy any lemons, type 0.");
 			qtyNewLemons = scan.nextInt();
 			buffer = scan.nextLine();
-
-
-			System.out.println("You would like to buy "+qtyNewLemons+" ,correct? Type 'yes' if so, and type 'no' if not.");
-			responseToBuyLemons = scan.nextLine();		
-			
-		
 			qtyLemons = qtyLemons+qtyNewLemons;
 			 double qtyCashSpentOnLemons = (double)(qtyNewLemons*costOfLemon);
 			cash = cash-qtyCashSpentOnLemons;
 
 			//now doing sugar
 
-			String responseToBuySugar;
 			int sugarPossibleToBuy = (int)(cash/costOfSugar);
 			int qtyNewCupsSugar;
 			System.out.println("Please type in an integer for how many cups of sugar you would like to buy. You currently have " + qtySugars + " cups of sugar, can buy up to" + sugarPossibleToBuy + ", and you have $" + cash + ". If you do not want to buy any cups of sugar, type 0.");
 			qtyNewCupsSugar = scan.nextInt();
 			buffer = scan.nextLine();
-			System.out.println("You would like to buy "+qtyNewCupsSugar+" ,correct? Type 'yes' if so, and type 'no' if not.");
-			responseToBuySugar = scan.nextLine();		
-			
 			qtySugars = qtySugars+qtyNewCupsSugar;
 			qtyCashSpentOnLemons = (double)(qtyNewLemons*costOfLemon);
 			cash = cash-qtyCashSpentOnLemons;
+
+			//now doing ice
+
+			int icePossibleToBuy = (int)(cash/costOfIceBag);
+			int qtyNewIceBags;
+			System.out.println("Please type in an integer for how many bags of ice you would like to buy. You currently have " + qtyIceBags + " bags of ice, can buy up to" + icePossibleToBuy + ", and you have $" + cash + ". If you do not want to buy any bags of ice, type 0.");
+			qtyNewBagsIce = scan.nextInt();
+			buffer = scan.nextLine();
+			qtyIceBags = qtyIceBags+qtyNewIceBags;
+			qtyCashSpentOnIce = (double)(qtyNewIce*costOfIceBag);
+			cash = cash-qtyCashSpentOnIce;
+
+			//now doing cups
+
+			int cupsPossibleToBuy = (int)(cash/costOfCup);
+			int qtyNewCups;
+			System.out.println("Please type in an integer for how many cups you would like to buy. You currently have " + qtyCups + " cups, can buy up to" + cupsPossibleToBuy + ", and you have $" + cash + ". If you do not want to buy any cups, type 0.");
+			qtyNewCups = scan.nextInt();
+			buffer = scan.nextLine();
+			qtyCups = qtyCups+qtyNewCups;
+			qtyCashSpentOnCups = (double)(qtyNewCups*costOfCups);
+			cash = cash-qtyCashSpentOnCups;
 		}
+		//making recipie
+		
+		
 		
 	}
    }  //close setup
