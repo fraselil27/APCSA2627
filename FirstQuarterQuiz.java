@@ -17,11 +17,11 @@ public class FirstQuarterQuiz
 		String answerToQuestion;
 		int numQuestion = 1;
 		int numCorrectAnswers = 0;
-		bool questionOneRight;
-		bool questionTwoRight;
-		bool questionThreeRight;
-		bool questionFourRight;
-		bool questionFiveRight;
+		boolean questionOneRight = false;
+		boolean questionTwoRight = false;
+		boolean questionThreeRight = false;
+		boolean questionFourRight = false;
+		boolean questionFiveRight = false;
 
 		System.out.println("Here is Question "+numQuestion+". Remember to type the capital answer of the letter of your response.");
 		
@@ -41,13 +41,13 @@ public class FirstQuarterQuiz
 			{
 				numCorrectAnswers++;
 				numQuestion++;
-				bool questionOneRight = true;
+				questionOneRight = true;
 			}
 
 			else
 			{
 				numQuestion++;
-				bool questionOneRight = false;
+				questionOneRight = false;
 			}
 
 		}
@@ -70,12 +70,12 @@ public class FirstQuarterQuiz
 			{
 				numCorrectAnswers++;
 				numQuestion++;
-				bool questionTwoRight = true;
+				questionTwoRight = true;
 			}
 			else
 			{
 				numQuestion++;
-				bool questionTwoRight = false;
+				questionTwoRight = false;
 			}
 		}
 
@@ -96,7 +96,7 @@ public class FirstQuarterQuiz
 			{
 				numCorrectAnswers++;
 				numQuestion++;
-				bool questionThreeRight = true;
+				questionThreeRight = true;
 			}
 			else
 			{
@@ -161,14 +161,15 @@ public class FirstQuarterQuiz
 		{
 			System.out.println("You got every question correct! You earned an A+ on this quiz.");
 		}
-		if(numCorrectAnswers == 4)
+		else if(numCorrectAnswers == 4)
 		{
 			System.out.println("You earned a B- on this assignment.");
 		}
-		if(num correctAnswers == 3)
+		else if(numCorrectAnswers == 3)
 		{
 			System.out.println("You earned a D- on this assignment.");
-		else
+		}
+		else if(numCorrectAnswers < 3)
 		{
 			System.out.println("You failed this assignment.");
 		}
@@ -185,25 +186,18 @@ public class FirstQuarterQuiz
 		{
 			System.out.println("You got question two wrong. The correct answer to question two was A.");
 		}
-		if(questionThreeRight == false);
+		if(questionThreeRight == false)
 		{
 			System.out.println("You got question three wrong. The correct answer to question three was B.");
 		}
-		if(questionFourRight == false);
+		if(questionFourRight == false)
 		{
 			System.out.println("You got question four wrong. The correct answer to question four was A.");
 		}
-		if(questionFiveRight == false);
+		if(questionFiveRight == false)
 		{
 			System.out.println("You got question five wrong. The correct answer to question five was C.");
 		}
-
-		
-
-
-
-
-
 
 	}
 }
