@@ -17,6 +17,11 @@ public class FirstQuarterQuiz
 		String answerToQuestion;
 		int numQuestion = 1;
 		int numCorrectAnswers = 0;
+		bool questionOneRight;
+		bool questionTwoRight;
+		bool questionThreeRight;
+		bool questionFourRight;
+		bool questionFiveRight;
 
 		System.out.println("Here is Question "+numQuestion+". Remember to type the capital answer of the letter of your response.");
 		
@@ -32,15 +37,17 @@ public class FirstQuarterQuiz
 			System.out.println("Type your answer here: ");
 			answerToQuestion = scan.nextLine();
 
-			if(answerToQuestion == "D")
+			if(answerToQuestion.equals("D"))
 			{
 				numCorrectAnswers++;
 				numQuestion++;
+				bool questionOneRight = true;
 			}
 
 			else
 			{
 				numQuestion++;
+				bool questionOneRight = false;
 			}
 
 		}
@@ -59,14 +66,16 @@ public class FirstQuarterQuiz
 			System.out.println("D. 1111 0000. 0000 1111. 1111 0000");
 			System.out.println("Type your answer here: ");
 			answerToQuestion = scan.nextLine();
-			if(answerToQuestion == "A")
+			if(answerToQuestion.equals("A"))
 			{
 				numCorrectAnswers++;
 				numQuestion++;
+				bool questionTwoRight = true;
 			}
 			else
 			{
 				numQuestion++;
+				bool questionTwoRight = false;
 			}
 		}
 
@@ -76,21 +85,23 @@ public class FirstQuarterQuiz
 
 		if(numQuestion == 3)
 		{
-			System.out.println("Which of the following is the binary code for white?");
-			System.out.println("A. String quiz = “Quiz today!!”;");
+			System.out.println("Which of the following correctly declares and initializes a primitive variable?");
+			System.out.println("A. String quiz = Quiz today!!;");
 			System.out.println("B. double quizScore = 98;");
 			System.out.println("C. Int numStudents = 10;");
 			System.out.println("D. char letterGrade = A;");
 			System.out.println("Type your answer here: ");
 			answerToQuestion = scan.nextLine();
-			if(answerToQuestion == "B")
+			if(answerToQuestion.equals("B"))
 			{
 				numCorrectAnswers++;
 				numQuestion++;
+				bool questionThreeRight = true;
 			}
 			else
 			{
 				numQuestion++;
+				questionThreeRight = false;
 			}
 		}	
 		//asking question 4
@@ -99,21 +110,23 @@ public class FirstQuarterQuiz
 
 		if(numQuestion == 4)
 		{
-			System.out.println(What is the output of the following statement?\nSystem.out.print(12%5);");
+			System.out.println("What is the output of the following statement?\nSystem.out.print(12%5);");
 			System.out.println("A. 2");
 			System.out.println("B. 2.4");
 			System.out.println("C. 12%5");
 			System.out.println("D. 12.5");
 			System.out.println("Type your answer here: ");
 			answerToQuestion = scan.nextLine();
-			if(answerToQuestion == "A")
+			if(answerToQuestion.equals("A"))
 			{
 				numCorrectAnswers++;
 				numQuestion++;
+				questionFourRight = true;
 			}
 			else
 			{
 				numQuestion++;
+				questionFourRight = false;
 			}
 		}	
 		//asking question 5
@@ -122,31 +135,75 @@ public class FirstQuarterQuiz
 
 		if(numQuestion == 5)
 		{
-			System.out.println(What does OOP stand for?");
+			System.out.println("What does OOP stand for?");
 			System.out.println("A. Object Oriented Programs");
 			System.out.println("B. Object Output Programs");
 			System.out.println("C. Object Oriented Programming");
 			System.out.println("D. Open Object Programming");
 			System.out.println("Type your answer here: ");
 			answerToQuestion = scan.nextLine();
-			if(answerToQuestion == "C")
+			if(answerToQuestion.equals("C"))
 			{
 				numCorrectAnswers++;
-				numQuestion++;
+				questionFiveRight = true;
 			}
 			else
 			{
-				numQuestion++;
+				questionFiveRight = false;
 			}
 		}	
 
-		double percentCorrect = (double)(numCorrectAnswers/numQuestion);
-		System.out.println("Your percentage of correct answers is "+percentCorrect". You got "+numCorrectAnswers+" correct.");
-
-
+		double percentCorrect = ((double)(numCorrectAnswers)/(double)(numQuestion))*100;
+		System.out.println("Your percentage of correct answers is "+percentCorrect+"%. You got "+numCorrectAnswers+" correct.");
+		
+		//saying letter grades
+		if(numCorrectAnswers == 5)
+		{
+			System.out.println("You got every question correct! You earned an A+ on this quiz.");
+		}
+		if(numCorrectAnswers == 4)
+		{
+			System.out.println("You earned a B- on this assignment.");
+		}
+		if(num correctAnswers == 3)
+		{
+			System.out.println("You earned a D- on this assignment.");
+		else
+		{
+			System.out.println("You failed this assignment.");
 		}
 
+
+		//saying which questions are wrong and what correct answers are
+		
+
+		if(questionOneRight == false)
+		{
+			System.out.println("You got question one wrong. The correct answer to question one was D.");
+		}
+		if(questionTwoRight == false)
+		{
+			System.out.println("You got question two wrong. The correct answer to question two was A.");
+		}
+		if(questionThreeRight == false);
+		{
+			System.out.println("You got question three wrong. The correct answer to question three was B.");
+		}
+		if(questionFourRight == false);
+		{
+			System.out.println("You got question four wrong. The correct answer to question four was A.");
+		}
+		if(questionFiveRight == false);
+		{
+			System.out.println("You got question five wrong. The correct answer to question five was C.");
+		}
+
+		
+
+
+
+
+
+
 	}
-
-
 }
