@@ -70,10 +70,78 @@ public class FirstQuarterQuiz
 			}
 		}
 
-			
-			
-		
+		//asking question 3
 
+		System.out.println("Here is Question "+numQuestion+". Remember to type the capital answer of the letter of your response.");
+
+		if(numQuestion == 3)
+		{
+			System.out.println("Which of the following is the binary code for white?");
+			System.out.println("A. String quiz = “Quiz today!!”;");
+			System.out.println("B. double quizScore = 98;");
+			System.out.println("C. Int numStudents = 10;");
+			System.out.println("D. char letterGrade = A;");
+			System.out.println("Type your answer here: ");
+			answerToQuestion = scan.nextLine();
+			if(answerToQuestion == "B")
+			{
+				numCorrectAnswers++;
+				numQuestion++;
+			}
+			else
+			{
+				numQuestion++;
+			}
+		}	
+		//asking question 4
+
+		System.out.println("Here is Question "+numQuestion+". Remember to type the capital answer of the letter of your response.");
+
+		if(numQuestion == 4)
+		{
+			System.out.println(What is the output of the following statement?\nSystem.out.print(12%5);");
+			System.out.println("A. 2");
+			System.out.println("B. 2.4");
+			System.out.println("C. 12%5");
+			System.out.println("D. 12.5");
+			System.out.println("Type your answer here: ");
+			answerToQuestion = scan.nextLine();
+			if(answerToQuestion == "A")
+			{
+				numCorrectAnswers++;
+				numQuestion++;
+			}
+			else
+			{
+				numQuestion++;
+			}
+		}	
+		//asking question 5
+
+		System.out.println("Here is Question "+numQuestion+". Remember to type the capital answer of the letter of your response.");
+
+		if(numQuestion == 5)
+		{
+			System.out.println(What does OOP stand for?");
+			System.out.println("A. Object Oriented Programs");
+			System.out.println("B. Object Output Programs");
+			System.out.println("C. Object Oriented Programming");
+			System.out.println("D. Open Object Programming");
+			System.out.println("Type your answer here: ");
+			answerToQuestion = scan.nextLine();
+			if(answerToQuestion == "C")
+			{
+				numCorrectAnswers++;
+				numQuestion++;
+			}
+			else
+			{
+				numQuestion++;
+			}
+		}	
+
+		double percentCorrect = (double)(numCorrectAnswers/numQuestion);
+		System.out.println("Your percentage of correct answers is "+percentCorrect". You got "+numCorrectAnswers+" correct.");
 
 
 		}
